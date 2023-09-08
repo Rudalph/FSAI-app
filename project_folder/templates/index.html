@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Export Firestore Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Export Firestore Data to CSV</h1>
+        <form action="{{ url_for('export_csv') }}" method="POST">
+            <button type="submit">Export CSV</button>
+        </form>
+    </div>
+</body>
+</html>
