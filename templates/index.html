@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Export Firestore Data</title>
@@ -12,4 +12,43 @@
         </form>
     </div>
 </body>
+</html> -->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Export Firestore Data</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Export Firestore Data to CSV -FSAI GANESH MANDAL</h1>
+        <form action="{{ url_for('export_csv') }}" method="POST">
+            <button type="submit" name="export_type" value="collection1">Export CSV for Collection 1</button>
+            <br>
+            <br>
+            <br>
+            <button type="submit" name="export_type" value="collection2">Export CSV for Collection 2</button>
+        </form>
+            <br>
+            <br>
+        <form action="{{ url_for('export_top_scores_csv') }}" method="POST">
+            <button type="submit" name="export_type" value="top_scores_collection2">Export Top Scores CSV for Collection 2</button>
+        </form>
+
+        {% if response1 %}
+        <a href="{{ url_for('download_csv', filename='output1.csv') }}">Download Collection 1 CSV</a>
+        {% endif %}
+
+        {% if response2 %}
+        <a href="{{ url_for('download_csv', filename='output2.csv') }}">Download Collection 2 CSV</a>
+        {% endif %}
+
+        {% if response3 %}
+        <a href="{{ url_for('download_csv', filename='output2_top_scores.csv') }}">Download Top Scores CSV for Collection 2</a>
+        {% endif %}
+    </div>
+</body>
 </html>
+
+
