@@ -14,7 +14,10 @@
 </body>
 </html> -->
 
-<!DOCTYPE html>
+<!-- 
+---------------------------------------- -->
+
+<!-- <!DOCTYPE html>
 <html>
 <head>
     <title>Export Firestore Data</title>
@@ -49,6 +52,121 @@
         {% endif %}
     </div>
 </body>
+</html> -->
+
+
+
+<!-- --------------------------------------- -->
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Export Firestore Data</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        /* Basic mobile-responsive styles */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        form {
+            margin-bottom: 20px;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        a {
+            display: block;
+            margin-top: 10px;
+            text-decoration: none;
+            color: #007bff;
+            font-size: 16px;
+        }
+
+        /* Media query for screens smaller than 600px (e.g., mobile devices) */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 20px;
+            }
+
+            button {
+                font-size: 14px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Export Firestore Data to CSV - FSAI GANESH MANDAL</h1>
+        <form action="{{ url_for('export_csv') }}" method="POST">
+            <button type="submit" name="export_type" value="collection1">Export CSV for Collection 1</button>
+        </form>
+        <form action="{{ url_for('export_csv') }}" method="POST">
+            <button type="submit" name="export_type" value="collection2">Export CSV for Collection 2</button>
+        </form>
+        <form action="{{ url_for('export_top_scores_csv') }}" method="POST">
+            <button type="submit" name="export_type" value="top_scores_collection2">Export Top Scores CSV for Collection 2</button>
+        </form>
+        <form action="{{ url_for('export_sorted_csv') }}" method="POST">
+            <button type="submit" name="export_type" value="sorted_collection2">Export Sorted CSV for Collection 2</button>
+        </form>
+
+        {% if response1 %}
+        <a href="{{ url_for('download_csv', filename='output1.csv') }}">Download Collection 1 CSV</a>
+        {% endif %}
+
+        {% if response2 %}
+        <a href="{{ url_for('download_csv', filename='output2.csv') }}">Download Collection 2 CSV</a>
+        {% endif %}
+
+        {% if response3 %}
+        <a href="{{ url_for('download_csv', filename='output2_top_scores.csv') }}">Download Top Scores CSV for Collection 2</a>
+        {% endif %}
+    </div>
+</body>
 </html>
+
+
+
+
+
 
 
